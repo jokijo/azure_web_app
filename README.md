@@ -1,10 +1,32 @@
 # Azure Web App - Python
 
-A simple Python web application designed for deployment on Azure Web App.
+A Python web application following best practices, designed for deployment on Azure Web App.
+
+## Project Structure
+
+```
+azure_web_app/
+├── app/                    # Application package
+│   ├── __init__.py        # Application factory
+│   ├── routes.py          # Route handlers
+│   └── templates/         # HTML templates
+│       └── index.html
+├── tests/                  # Test suite
+│   ├── __init__.py
+│   ├── conftest.py        # Pytest fixtures
+│   ├── test_app.py        # Application tests
+│   └── test_routes.py     # Route tests
+├── app.py                  # Application entry point
+├── config.py               # Configuration management
+├── requirements.txt        # Python dependencies
+└── README.md
+```
 
 ## Features
 
-- Simple Flask web application
+- Modular Flask application using application factory pattern
+- Separation of concerns (routes, templates, configuration)
+- Comprehensive test suite with pytest
 - Health check endpoint for monitoring
 - Responsive HTML interface
 - Ready for Azure Web App deployment
@@ -31,6 +53,18 @@ This application is configured for Azure Web App with the following settings:
 
 3. Access the application at `http://localhost:8000`
 
+## Testing
+
+Run the test suite:
+```bash
+pytest
+```
+
+Run tests with coverage:
+```bash
+pytest --cov=app tests/
+```
+
 ## Endpoints
 
 - `/` - Main landing page
@@ -44,3 +78,13 @@ Azure Web App will automatically:
 3. Start the application using the default startup command
 
 No additional pipeline configuration is required as Azure will create it automatically.
+
+## Development Best Practices
+
+This project follows Python and Flask best practices:
+- Application factory pattern for better testing and modularity
+- Blueprints for organizing routes
+- Separate configuration management
+- Template-based rendering
+- Comprehensive test coverage
+- Clear project structure for scalability
